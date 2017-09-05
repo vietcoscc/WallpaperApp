@@ -1,4 +1,4 @@
-package com.example.viet.wallpaperapp.adapter;
+package com.example.viet.wallpaperapp.ui.main;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -21,12 +21,12 @@ import butterknife.ButterKnife;
  * Created by viet on 29/08/2017.
  */
 
-public class CategoryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<Category> mArrCategory;
     private Context mContext;
     private OnItemClickListener mOnItemClickListener;
 
-    public CategoryRecyclerViewAdapter(ArrayList<Category> mArrCategory) {
+    public MainAdapter(ArrayList<Category> mArrCategory) {
         this.mArrCategory = mArrCategory;
     }
 

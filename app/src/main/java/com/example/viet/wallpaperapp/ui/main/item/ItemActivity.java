@@ -12,7 +12,6 @@ import android.widget.PopupMenu;
 
 import com.example.viet.wallpaperapp.MyApplication;
 import com.example.viet.wallpaperapp.R;
-import com.example.viet.wallpaperapp.adapter.ImageRecyclerViewAdapter;
 import com.example.viet.wallpaperapp.model.Image;
 import com.stfalcon.frescoimageviewer.ImageViewer;
 
@@ -33,7 +32,7 @@ public class ItemActivity extends AppCompatActivity implements ItemMvpView {
     RecyclerView recyclerView;
     private ProgressDialog mProgressDiaglog;
     private String mCId;
-    private ImageRecyclerViewAdapter mAdapter;
+    private ItemAdapter mAdapter;
     private ArrayList<Image> mArrImage = new ArrayList<>();
 
     @Override
@@ -56,14 +55,14 @@ public class ItemActivity extends AppCompatActivity implements ItemMvpView {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, IMAGE_SPAN_COUNT));
-        mAdapter = new ImageRecyclerViewAdapter(mArrImage);
-        mAdapter.setmOnItemClickListener(new ImageRecyclerViewAdapter.OnItemClickListener() {
+        mAdapter = new ItemAdapter(mArrImage);
+        mAdapter.setmOnItemClickListener(new ItemAdapter.OnItemClickListener() {
             @Override
             public void onClick(View view, int position) {
                 mItemPresenter.createImageViewer(ItemActivity.this, view, position, mArrImage);
             }
         });
-        mAdapter.setmOnItemLongClickListener(new ImageRecyclerViewAdapter.OnItemLongClickListener() {
+        mAdapter.setmOnItemLongClickListener(new ItemAdapter.OnItemLongClickListener() {
             @Override
             public void onLongClick(View view, int position) {
                 mItemPresenter.createPopupMenu(ItemActivity.this, view, position, mArrImage);
